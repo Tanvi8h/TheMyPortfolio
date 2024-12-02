@@ -3,20 +3,27 @@
     margin: 0;
     padding: 0;
 }
-
+html, body {
+    height: 100%; /* Ensures the body takes up the full viewport height */
+    margin: 0; /* Removes default margin */
+}
 body {
     font-family: 'Arial', sans-serif;
     color: #a76ea4;
-    background-color: #f8f4e3; /* Pastel cream color */
+    background-color: transparent; 
+    position: relative;
+    padding-bottom: 60px;
 }
 
+
 header {
-    background: rgba(203, 76, 197, 0.9);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    padding: 20px;
-    transition: background 0.3s;
+    position: fixed; /* Fix the header at the top */
+    top: 0;          /* Keep it at the very top */
+    left: 0;
+    width: 100%;     /* Full width of the viewport */
+    background-color: #e2bab6; /* Optional: semi-transparent background */
+    z-index: 1000;   /* Ensures header stays on top of other content */
+    padding: 20px;  /* Adjust padding as needed */
 }
 
 nav {
@@ -45,6 +52,7 @@ nav ul li a:hover {
 }
 
 .hero {
+    background-color: #f8f4e3; /* Pastel cream color */
     position: relative; /* Set position to relative for the pseudo-element */
     height: 100vh;
     display: flex;
@@ -63,7 +71,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://static.vecteezy.com/system/resources/previews/011/849/151/non_2x/watercolor-flower-frame-background-free-vector.jpg') center/cover no-repeat;
+    background: url('Myportfolioimages/newMain.png') center/cover no-repeat;
     opacity: 3; /* Adjust opacity for subtlety */
     z-index: 1; /* Make sure it stays behind the content */
 }
@@ -122,22 +130,33 @@ h2 {
     font-size: 2em;
 }
 
+
+/* Main container for work items */
+
 .work-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 120px; /* Larger gap between items */
+    margin-top: 300px; /* Move container further down */
+    margin-left: 200px; /* Shift container further to the right */
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
 }
 
 
 
+/* Hover effect for work items */
 .work-item:hover {
     transform: translateY(-5px);
+    background-color: #f5e1f7; /* Light purple background for differentiation */
 }
 
+/* Style for each work item */
 .work-item {
-    background: #d181b9eb;
-    border: 1px solid #ad60a7;
+    background: #9786bf;
+    border: 1px solid #7861af;
     border-radius: 10px;
     padding: 40px; /* Increased padding for more space */
     transition: transform 0.3s;
@@ -146,6 +165,7 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
 }
 
+/* Style for images inside work items */
 .work-item img {
     max-width: 100%; /* Ensure the image scales properly */
     border-radius: 10px;
@@ -153,35 +173,457 @@ h2 {
 
 
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
     padding: 20px;
-    background: #bf64b9;
+    background: #e2bab6;
     color: white;
 }
 
-.about {
-    padding: 100px 20px;
+
+
+/* Parent container for .about-text */
+.about-content {
+    display: flex;               /* Enable flexbox layout */
+    justify-content: flex-end;   /* Align the box to the right */
+    align-items: center;         /* Center the box vertically */
+    gap: 20px;                   /* Optional: Space between items */
+    height: 100vh;               /* Full viewport height to center vertically */
+    padding-right: 20px;         /* Reduce padding-right to move the content left */
+}
+
+/* Text box with the .about-text */
+.about-text {
+    background: #f0e6f7;         /* Light lavender background for the text box */
+    padding: 20px 30px;          /* Reduced padding for a more compact box */
+    border-radius: 15px;         /* Rounded corners */
+    max-width: 600px;            /* Reduce max-width to make the box smaller */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    font-size: 1.1em;            /* Smaller text size */
+    font-family: 'monospace', serif; /* Elegant serif font */
+    color: #87864d;                 /* Dark text for readability */
+    width: 90%;                  /* Allow box to be responsive */
+    text-align: left;            /* Align text to the left inside the box */
+    margin-right: 400px;          /* Move the box much further left by increasing margin-right */
+}
+
+/* Optional: Heading inside .about-text */
+.about-text h3 {
+    font-size: 2em;              /* Smaller heading font */
+    margin-bottom: 15px;         /* Space below heading */
+    font-family: 'monospace', serif; /* Elegant serif font for heading */
+    color: #a76ea4;              /* Purple color for heading */
+    font-weight: bold;           /* Bold heading */
+}
+
+/* Paragraph text inside .about-text */
+.about-text p {
+    font-size: 1em;              /* Smaller paragraph text */
+    line-height: 1.5;            /* Slightly increased line height for readability */
+    font-family: 'monospace', sans-serif; /* Clean sans-serif font */
+    color: #595934;                 /* Slightly muted text color */
+}
+
+
+
+
+
+/* Apply the background image ONLY to the skills page */
+body#about-page {
+    background-image: url('Myportfolioimages/aboutme.png'); /* Correct path to image */
+    background-size: cover;  /* Make the image cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    color: white; /* Text color for contrast */
+    min-height: 100vh; /* Make sure the body takes up the full viewport height */
+    padding: 0; /* Remove default padding on body */
+    margin: 0; /* Remove default margin on body */
+}
+
+
+
+
+
+/* Hobbies Page Background */
+#hobbies-page {
+    background-image: url('./Myportfolioimages/travel.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  /* Keeps the background fixed in place */
+    min-height: 100vh;  /* Full screen height for the section */
+}
+
+
+/* Hobbies Section (Fixed Position) */
+.hobbies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;  /* Increase gap between items */
+    align-items: center;
+    position: fixed;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
     text-align: center;
 }
 
-.about-content {
+/* Individual Hobby Item */
+.hobby-item {
+    background: #c8acd2;
+    border: 1px solid #8a6597;
+    border-radius: 10px;
+    padding: 25px;
+    transition: transform 0.3s;
+    max-width: 250px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Title inside hobby item */
+.hobby-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #a76ea4;
+}
+
+/* Text inside hobby item */
+.hobby-item p {
+    font-size: 1em;
+    color: #44284d;
+}
+
+/* Hover effect for hobby items */
+.hobby-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Push far-left and far-right containers further apart from the center */
+.hobbies-container .hobby-item:first-child {
+    transform: translateX(-150px);  /* Move far-left container much further left */
+}
+
+.hobbies-container .hobby-item:last-child {
+    transform: translateX(150px);   /* Move far-right container much further right */
+}
+
+
+
+#download-hobbies {
+    background-color: #7e3aa9; /* Example: Red for Hobbies button */
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #download-hobbies:hover {
+    background-color: #b847e5;
+  }
+  
+
+
+
+
+/* Apply the background image only to the projects page */
+#projects-page {
+    background-image: url('Myportfolioimages/proj.png'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white;
+}
+
+/* Optional styling for the content section */
+#projects {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the content area */
+    border-radius: 8px;
+}
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+.project-item img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Apply the background image ONLY to the skills page */
+body#skills-page {
+    background-image: url('Myportfolioimages/skills.png'); /* Correct path to image */
+    background-size: cover;  /* Make the image cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    color: white; /* Text color for contrast */
+    min-height: 100vh; /* Make sure the body takes up the full viewport height */
+    padding: 0; /* Remove default padding on body */
+    margin: 0; /* Remove default margin on body */
+}
+
+
+
+
+/* Skills Section (Centered in the middle, no background) */
+#skills {
+    display: flex;                 /* Enable Flexbox */
+    justify-content: center;       /* Center horizontally */
+    align-items: center;           /* Center vertically */
+    flex-direction: column;        /* Stack the items vertically */
+    min-height: 100vh;              /* Take up full viewport height */
+    padding: 0 20px;                /* Optional padding */
+    text-align: center;            /* Center text inside skill items */
+    background-color: transparent; /* Ensure no background in this section */
+}
+
+/* Title for skills section */
+#skills h2 {
+    font-size: 2.5em; /* Larger font size for the heading */
+    margin-bottom: 40px; /* Space below the heading to separate from the skill items */
+    color: #5f78a1; /* Custom color for the heading */
+    font-family: 'Arial', sans-serif;
+    text-align: center; /* Ensure the text is centered */
+}
+
+/* Container for skill items */
+.skills-container {
     display: flex;
-    flex-direction: row; /* Align items in a row */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    gap: 20px; /* Space between image and text */
+    flex-wrap: wrap;
+    justify-content: center;  /* Center items horizontally */
+    align-items: center;      /* Center items vertically */
+    gap: 50px;
+    max-width: 1000px;         /* Optional: Set a max-width for large screens */
+    width: 100%;
 }
 
-.about-image {
-    width: 300px; /* Adjust this size as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: Add rounded corners */
+/* Individual skill items */
+.skill-item {
+    display: flex;               /* Enable Flexbox for skill item */
+    flex-direction: column;      /* Stack content vertically */
+    justify-content: center;     /* Center content vertically */
+    align-items: center;         /* Center content horizontally */
+    background: #b9cceb;       /* Retaining background color for skill items */
+    border: 1px solid #f5d486;
+    border-radius: 10px;
+    padding: 40px;
+    transition: transform 0.3s;
+    height: 400px;               /* Fixed height for all skill items */
+    width: 300px;                /* Fixed width for all skill items */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.about-text {
-    background: rgba(229, 90, 178, 0.6); /* Optional: Light background for the text box */
-    padding: 20px; /* Space inside the box */
-    border-radius: 10px; /* Rounded corners for the text box */
-    max-width: 400px; /* Limit the width of the text box */
-    box-shadow: 0 2px 5px rgba(235, 230, 230, 0.2); /* Optional: Add a shadow */
+/* Style for skill item heading */
+.skill-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #677ea4;
+}
+
+/* Style for skill item paragraph */
+.skill-item p {
+    font-size: 1.1em;
+    color: #677ea4;
+}
+
+/* Hover effect for skill items */
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+
+
+  
+
+
+  #contact-page {
+    background-image: url('Myportfolioimages/bee.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white; /* Default color for the body */
+    display: flex;
+    justify-content: center;  /* Centers the form horizontally */
+    align-items: center;      /* Centers the form vertically */
+    padding-top: 10%;         /* Shift content a bit lower, adjust percentage to taste */
+  }
+  
+  .contact-box {
+    background-color: rgba(244, 242, 245, 0.7); /* Semi-transparent background */
+    padding: 2rem;  /* Reduced padding for a smaller box */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(244, 242, 245, 0.7); /* Subtle shadow */
+    width: 100%;
+    max-width: 500px;  /* Make the form a bit more compact */
+    border: 3px solid #e19891; /* Bright purple border around the box */
+  }
+  
+  /* Smaller Heading */
+  h1 {
+    text-align: center;
+    color: #e2bab6; /* Bright Purple */
+    margin-bottom: 1.5rem; /* Reduced margin to make it closer to the form */
+    font-size: 1.8rem; /* Smaller font size for the heading */
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin: 10px 0 5px; /* Reduced margin for labels */
+    font-size: 1.1rem;  /* Smaller font size for labels */
+    color: #e2bab6; /* Bright Purple */
+  }
+  
+  input, textarea {
+    padding: 10px;
+    margin-bottom: 15px; /* Reduced margin between inputs */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem; /* Smaller font size for input and textarea */
+    width: 100%; /* Ensure inputs take up full width of the form */
+    color: #e2bab6; /* Bright Purple text color for inputs and textarea */
+    background-color: #f4f4f4; /* Light background color for inputs */
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #e2bab6; /* Change border color when focused */
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #e2bab6; /* Bright Purple background for button */
+    color: white; /* Text color for the button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem; /* Smaller font size for the button */
+    width: 100%; /* Full width button */
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #eb88b1; /* Darker purple when hovering */
+  }
+  
+  textarea {
+    resize: vertical; /* Allow users to resize the textarea vertically */
+  }
+  
+  /* Responsive styles for small screens */
+  @media (max-width: 600px) {
+    .contact-box {
+      padding: 1.5rem; /* Further reduce padding for smaller screens */
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Smaller heading size on smaller screens */
+    }
+  
+    input, textarea, button {
+      font-size: 1rem; /* Adjust input sizes on smaller screens */
+    }
+  }
+  
+
+
+ /* Style for the container that holds the button */
+.button-container {
+    display: flex;                 /* Enable Flexbox */
+    justify-content: center;       /* Center horizontally */
+    align-items: center;           /* Center vertically */
+    height: 100vh;                 /* Full viewport height */
+}
+
+/* Resume Button Styles */
+#download-resume {
+    background-color: #4CAF50;     /* Green background */
+    color: white;                  /* White text */
+    font-size: 1.2rem;             /* Button font size */
+    padding: 15px 30px;            /* Button padding */
+    border: none;                  /* No border */
+    border-radius: 5px;            /* Rounded corners */
+    cursor: pointer;              /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background-color transition */
+    position: relative;            /* Allow movement of button using margin or transform */
+}
+
+/* Hover effect for the button */
+#download-resume:hover {
+    background-color: #45a049;     /* Darker green on hover */
+}
+
+/* Adjust vertical position by applying margin-top */
+#download-resume.adjust-position {
+    margin-top: 20%;               /* Change this value to move the button lower */
+}
+
+  
+/* Parent container for .about-text */
+.resume-content {
+    display: flex;               /* Enable flexbox layout */
+    justify-content: flex-end;   /* Align the box to the right */
+    align-items: center;         /* Center the box vertically */
+    gap: 20px;                   /* Optional: Space between items */
+    height: 100vh;               /* Full viewport height to center vertically */
+    padding-right: 20px;         /* Reduce padding-right to move the content left */
+}
+
+/* Text box with the .about-text */
+.resume-text {
+    background: #bb7be8;         /* Light lavender background for the text box */
+    padding: 20px 30px;          /* Reduced padding for a more compact box */
+    border-radius: 15px;         /* Rounded corners */
+    max-width: 600px;            /* Reduce max-width to make the box smaller */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    font-size: 1.1em;            /* Smaller text size */
+    font-family: 'monospace', serif; /* Elegant serif font */
+    color: #87864d;                 /* Dark text for readability */
+    width: 90%;                  /* Allow box to be responsive */
+    text-align: left;            /* Align text to the left inside the box */
+    margin-right: 400px;          /* Move the box much further left by increasing margin-right */
+}
+
+
+
+
+
+/* Apply the background image ONLY to the skills page */
+body#resume-page {
+    background-image: url('Myportfolioimages/rese.png'); /* Correct path to image */
+    background-size: cover;  /* Make the image cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    color: white; /* Text color for contrast */
+    min-height: 100vh; /* Make sure the body takes up the full viewport height */
+    padding: 0; /* Remove default padding on body */
+    margin: 0; /* Remove default margin on body */
 }

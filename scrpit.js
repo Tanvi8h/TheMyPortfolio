@@ -7,3 +7,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
         });
     });
 });
+document.querySelector('a').addEventListener('click', function () {
+    document.body.classList.add('fade-out');
+});
